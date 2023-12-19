@@ -8,7 +8,6 @@ class Square:
         """Square Initialization
         Args:
             size - represents the size of the square defined
-            Area - represents the area of the square defined
         Raises:
             TypeError - if size is not an integer
             ValueError - if size is less than 0
