@@ -3,8 +3,7 @@
 This script lists all state with
 where 'name' equals your fourth argument (argv[4])
 in ascending order by 'states.id'
-from the database hbtn_0e_0_usa
-This filter is safe from SQL injections
+from the database hbtn_0e_4_usa
 """
 
 import MySQLdb
@@ -19,11 +18,7 @@ if __name__ == '__main__':
 
     db_cursor = db_connect.cursor()
 
-    # db_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' \
-    #         ORDER BY states.id ASC".format(argv[4]))
-
-    db_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY %(name)s \
-            ORDER BY states.id ASC", {'name': argv[4]})
+    db_cursor.execute("SELECT cities.id, cities.name, states.name FROM cities JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
 
     rows_selected = db_cursor.fetchall()
 
