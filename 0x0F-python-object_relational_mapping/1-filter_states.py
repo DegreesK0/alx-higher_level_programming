@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-This script lists all states
-from the database 'hbtn_0e_0_usa'
+This script lists all state with
+a 'name' that starts with 'N'
+in ascending order by 'states.id'
+from the database hbtn_0e_0_usa
 """
 
 import MySQLdb
@@ -17,7 +19,7 @@ if __name__ == '__main__':
     db_cursor = db_connect.cursor()
 
     db_cursor.execute("SELECT * FROM states WHERE name \
-            LIKE 'N%' ORDER BY id ASC")
+            LIKE 'N%' ORDER BY states.id ASC")
 
     rows_selected = db_cursor.fetchall()
 
